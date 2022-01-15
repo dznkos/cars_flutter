@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:appcars/components/screen/detalle/detalle_car.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -248,13 +249,21 @@ class Body extends StatelessWidget {
                           children: [
                             Container(
                               width: 140,
-                              child: Column(
-                                children: [
-                                  Image.asset("assets/images/aventator.png",
-                                  height: 60,),
-                                  SizedBox(height: 5,),
-                                  Text('\$417,826', style: Theme.of(context).textTheme.headline1)
-                                ],
+                              child: GestureDetector(
+                                onTap: (){
+                                  Navigator.pushNamed(context, DetalleCar.route);
+                                },
+                                child: Column(
+                                  children: [
+                                    Hero(
+                                      tag: 'car',
+                                      child: Image.asset("assets/images/aventator.png",
+                                              height: 60,)
+                                    ),
+                                    SizedBox(height: 5,),
+                                    Text('\$417,826', style: Theme.of(context).textTheme.headline1)
+                                  ],
+                                ),
                               ),
                             ),
                             Container(
