@@ -83,7 +83,7 @@ class DetalleCar extends StatelessWidget {
                         child: Text('Lamborghini Aventador', style: Theme.of(context).textTheme.bodyText1),
                       ),
                       Container(height: 150,
-                        margin: EdgeInsets.only(top: 30),
+                        margin: EdgeInsets.only(top:20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
