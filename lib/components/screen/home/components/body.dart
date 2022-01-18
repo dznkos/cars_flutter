@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:appcars/components/model/car.dart';
 import 'package:appcars/components/screen/detalle/detalle_car.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,32 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+    List<Car> listCars = [
+      Car(carName: 'Aventator' ,origen: 'Italia',years: '2009-2012',
+          motor: 'V8' , precio: '417,826' ,aceleracion: '2,8 s',
+          maxVelocidad: '350', fabricante: 'Lamborghini', urlImage: 'assets/images/aventator.png',),
+      Car(carName: 'Veyron' ,origen: 'Francia',years: '2005-2011',
+          motor: 'W16' , precio: '1,5 Mill.' ,aceleracion: '2,5 s',
+          maxVelocidad: '407', fabricante: 'Bugatti', urlImage: 'assets/images/bugattiveyron.png',),
+
+      Car(carName: 'Etron' ,origen: 'Alemania',years: '2009',
+          motor: 'Eléctrico' , precio: '995,100' ,aceleracion: '4,8 s',
+          maxVelocidad: '200', fabricante: 'Audi', urlImage: 'assets/images/etron.png',),
+
+      Car(carName: 'Gallardo' ,origen: 'Italia',years: '2003-2013',
+          motor: 'V10' , precio: '350,000' ,aceleracion: '3,4 s',
+          maxVelocidad: '325', fabricante: 'Lamborghini', urlImage: 'assets/images/gallardo.png',),
+
+      Car(carName: 'QuattroporteVI' ,origen: 'Italia',years: '2013',
+          motor: 'V6' , precio: '127,700' ,aceleracion: '5,1 s',
+          maxVelocidad: '285', fabricante: 'Maserati', urlImage: 'assets/images/mase1.png',),
+
+      Car(carName: 'MC20' ,origen: 'Italia',years: '2020',
+          motor: 'V6' , precio: '250,000' ,aceleracion: '2,9 s',
+          maxVelocidad: '325', fabricante: 'Maserati', urlImage: 'assets/images/mase2.png',),
+    ];
 
     return SafeArea(
         child: Column(
@@ -22,7 +49,7 @@ class Body extends StatelessWidget {
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight,
                   colors: [
-                    Color(0xFF700000), 
+                    Color(0xFF770e0e), 
                     Colors.black,              
                   ],
                   stops: [
@@ -79,8 +106,12 @@ class Body extends StatelessWidget {
                             )),
                       ),
                       MaterialButton(
-                        color: Colors.red[800],
-                        onPressed: () {},
+                        color: Color(0xFF770e0e),
+                        onPressed: () {
+
+                        },
+                        splashColor: Colors.black,
+                        highlightColor: Colors.transparent,
                         child: Text(
                           'LOG/SIGN',
                           style: TextStyle(
@@ -160,7 +191,6 @@ class Body extends StatelessWidget {
           ),
 
             // MID
-
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -168,7 +198,7 @@ class Body extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color(0xFF700000), 
+                    Color(0xFF770e0e), 
                     Colors.black,                                                          
                   ],
                   stops: [
@@ -176,39 +206,96 @@ class Body extends StatelessWidget {
                   ]
                 ),
               ),
-            child:Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                  Container(
-                  height: 180,
-                  child: Stack(
-                        children: [
-                          // CAR
-                          Positioned(
-                            right:-50,
-                            child: Transform(
-                              alignment: Alignment.center,
-                              transform: Matrix4.rotationY(pi),
-                              child: Image.asset("assets/images/2audi_r8.png",height: 140.h,))), 
-                          // CAR OPACITY
-                          Container(
-                            margin: EdgeInsets.only(left: 10),
-                            height: 100,
-                            alignment: Alignment.bottomLeft,
-                            child: Text('let us know exactly\nwhat you are looking for?',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white60,
-                                fontWeight: FontWeight.w300
-                              ),)),
-                  ],
-                  ))
-              ]
+            child:SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+            
+                    Container(
+                      width: 1.sw,
+                      height: 180,
+                      child: Stack(
+                          children: [
+                            // CAR
+                            Positioned(
+                              right:-50,
+                              child: Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.rotationY(pi),
+                                child: Image.asset("assets/images/2audi_r8.png",height: 140.h,))), 
+                            // CAR OPACITY
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              height: 100,
+                              alignment: Alignment.bottomLeft,
+                              child: Text('let us know exactly\nwhat you are looking for?',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white60,
+                                  fontWeight: FontWeight.w300
+                                ),)),
+                    ],
+                    )),
+                    Container(
+                      width: 1.sw,
+                      height: 180,
+                      child: Stack(
+                          children: [
+                            // CAR OPACITY
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              height: 100,
+                              alignment: Alignment.bottomRight,
+                              child: Text('let us know exactly\nwhat you are looking for?',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white60,
+                                  fontWeight: FontWeight.w300
+                                ),)),
+                            // CAR
+                            Positioned(
+                              top: 20,
+                              left:1,
+                              child: Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.rotationY(pi),
+                                child: Image.asset("assets/images/etron.png",height: 100.h,))), 
+                            
+                    ],
+                    )),
+                    Container(
+                      width: 1.sw,
+                      height: 180,
+                      child: Stack(
+                          children: [
+                            // CAR
+                            Positioned(
+                              top: 20,
+                              right:5,
+                              child: Transform(
+                                alignment: Alignment.center,
+                                transform: Matrix4.rotationY(pi),
+                                child: Image.asset("assets/images/mase2.png",height: 120.h,))), 
+                            // CAR OPACITY
+                            Container(
+                              margin: EdgeInsets.only(left: 10),
+                              height: 100,
+                              alignment: Alignment.bottomLeft,
+                              child: Text('let us know exactly\nwhat you are looking for?',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white60,
+                                  fontWeight: FontWeight.w300
+                                ),)),
+                    ],
+                    )),
+                ]
+              ),
             )
             ),
 
-            // catalogo
+            // Catalogo
              Expanded(
                child: Container(
                 width: double.infinity,
@@ -217,8 +304,8 @@ class Body extends StatelessWidget {
                     begin: Alignment.bottomCenter,
                     end: Alignment.topCenter,
                     colors: [                           
-                      Color(0xFF700000), 
-                      Color(0xFF700000),                                        
+                      Color(0xFF770e0e), 
+                      Color(0xFF770e0e),                                        
                       Color(0xFF260000)                                                                               
                     ],
                     stops: [
@@ -246,83 +333,11 @@ class Body extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 140,
-                              child: GestureDetector(
-                                onTap: (){
-                                  Navigator.pushNamed(context, DetalleCar.route);
-                                },
-                                child: Column(
-                                  children: [
-                                    Hero(
-                                      tag: 'car',
-                                      child: Image.asset("assets/images/aventator.png",
-                                              height: 60,)
-                                    ),
-                                    SizedBox(height: 5,),
-                                    Text('\$417,826', style: Theme.of(context).textTheme.headline1)
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: 140,
-                              child: Column(
-                                children: [
-                                  Image.asset("assets/images/mase1.png",
-                                  height: 60,),
-                                  SizedBox(height: 5,),
-                                  Text('\$74,390', style: Theme.of(context).textTheme.headline1)
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 140,
-                              child: Column(
-                                children: [
-                                  Image.asset("assets/images/etron.png",
-                                  height: 60,),
-                                  SizedBox(height: 5,),
-                                  Text('\$65,900', style: Theme.of(context).textTheme.headline1)
-                                ],
-                              ),                              
-                            ),
-                            Container(
-                              width: 140,
-                              child: Column(
-                                children: [
-                                  Image.asset("assets/images/connel.png",
-                                  height: 60,),
-                                  SizedBox(height: 5,),
-                                  Text('\$32,700', style: Theme.of(context).textTheme.headline1)
-                                ],
-                              ),
-                            ),
-                            Container(
-                              width: 140,
-                              child: Column(
-                                children: [
-                                  Image.asset("assets/images/bugattiveyron.png",
-                                  height: 60,),
-                                  SizedBox(height: 5,),
-                                  Text('\$1.9 Million', style: Theme.of(context).textTheme.headline1)
-                                ],
-                              ),
-                            ),
-                            Container(
-                              //color: Colors.blue,
-                              width: 140,
-                              child: Column(
-                                children: [
-                                  Image.asset("assets/images/mase2.png",
-                                  height: 60,),
-                                  SizedBox(height: 5,),
-                                  Text('\$77,695', style: Theme.of(context).textTheme.headline1,)
-                                ],
-                              ),
-                            )
-                          ],
+                          children: listCars.map<Widget>((car) {
+                            return CardCar(itemCar: car);
+
+                          }).toList()
+                            //CardCar(),
                         ),
                       )
                     ],
@@ -335,6 +350,40 @@ class Body extends StatelessWidget {
             
           ],
         )
+    );
+  }
+}
+
+class CardCar extends StatelessWidget {
+  const CardCar({
+    Key? key, required this.itemCar,
+  }) : super(key: key);
+
+  final Car itemCar;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 140,
+      child: GestureDetector(
+        onTap: (){
+          Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => DetalleCar(itemCar: itemCar,)));
+        },
+        child: Column(
+          children: [
+            Hero(
+              tag: '${itemCar.carName}',
+              child: Image.asset(itemCar.urlImage,
+                      height: 60,)
+            ),
+            SizedBox(height: 5,),
+            Text('${itemCar.carName}', style: Theme.of(context).textTheme.headline1)
+          ],
+        ),
+      ),
     );
   }
 }

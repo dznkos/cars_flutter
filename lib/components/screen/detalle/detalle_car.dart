@@ -1,13 +1,17 @@
+import 'package:appcars/components/model/car.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetalleCar extends StatelessWidget {
-  const DetalleCar({ Key? key }) : super(key: key);
+  const DetalleCar({ Key? key, required this.itemCar }) : super(key: key);
 
-  static String route = "detallecar";
+  //static String route = "detallecar";
+
+
+  final Car itemCar;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {   
     
 
     return Scaffold(
@@ -65,62 +69,84 @@ class DetalleCar extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             color: Colors.transparent,
-            child: Column(
-              children: [
-                Expanded(
-                  child: Hero(
-                    tag: 'car',
-                    child: Image.asset("assets/images/aventator.png")
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 20),
-                  height: 0.4.sh,
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      Center(
-                        child: Text('Lamborghini Aventador', style: Theme.of(context).textTheme.bodyText1),
-                      ),
-                      Container(height: 150,
-                        margin: EdgeInsets.only(top:20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                  Text('Fabricante: Lamborghini', style: Theme.of(context).textTheme.headline2 ),
-                                  Text('Velocidad Maxima: 350 km/h', style: Theme.of(context).textTheme.headline2,),
-                                  Text('Aceleración	0-100 km/h (62 mph): 2,8 s', style: Theme.of(context).textTheme.headline2),
-                                  Text('Precio : 417,826 dólares', style: Theme.of(context).textTheme.headline2),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Origen: Italia', style: Theme.of(context).textTheme.headline2),
-                                Text('Periodo: 2011-2021', style: Theme.of(context).textTheme.headline2),
-                                Text('Motor: V12', style: Theme.of(context).textTheme.headline2),
-                              ],
-                            )
-                          ],
-                        ),
-                      )
-                      
-                    ],
-                  ),
-                )
-                
-              ],
-            ),
+            child: CardDetalle(carName: itemCar.carName ,origen: itemCar.origen ,years: itemCar.years,
+                            motor: itemCar.motor,precio: itemCar.precio,aceleracion: itemCar.aceleracion,
+                            maxVelocidad: itemCar.maxVelocidad,fabricante: itemCar.fabricante, 
+                            urlImage: itemCar.urlImage ),
           ),
 
           ],
         )),
       
+    );
+  }
+}
+
+class CardDetalle extends StatelessWidget {
+  const CardDetalle({
+    Key? key, required this.urlImage, 
+    required this.carName, required this.origen, 
+    required this.years, required this.motor, 
+    required this.precio, required this.aceleracion,
+     required this.maxVelocidad, required this.fabricante,
+  }) : super(key: key);
+
+  final String urlImage, carName, origen, years, motor, precio,aceleracion,maxVelocidad,fabricante;
+
+  @override
+  Widget build(BuildContext context) {
+    
+    return Column(
+      children: [
+        Expanded(
+          child: Hero(
+            tag: '$carName',
+            child: Image.asset(urlImage)
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 10),
+          height: 0.4.sh,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Center(
+                child: Text(carName, style: Theme.of(context).textTheme.bodyText1),
+              ),
+              Container(
+                height: 180,
+                margin: EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                          Text('Fabricante: $fabricante', style: Theme.of(context).textTheme.headline2 ),
+                          Text('Velocidad Maxima: $maxVelocidad km/h', style: Theme.of(context).textTheme.headline2,),
+                          Text('Aceleración(0-100 km/h)\n	$aceleracion', style: Theme.of(context).textTheme.headline2),
+                          Text('Precio: \$ $precio dólares', style: Theme.of(context).textTheme.headline2),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Origen: $origen', style: Theme.of(context).textTheme.headline2),
+                        Text('Periodo: $years', style: Theme.of(context).textTheme.headline2),
+                        Text('Motor: $motor', style: Theme.of(context).textTheme.headline2),
+                      ],
+                    )
+                  ],
+                ),
+              )
+              
+            ],
+          ),
+        )
+        
+      ],
     );
   }
 }

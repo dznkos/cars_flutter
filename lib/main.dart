@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: () => MaterialApp(
         routes: {
-          "detallecar": (BuildContext context) => DetalleCar(),
+          //"detallecar": (BuildContext context) => DetalleCar(itemCar: null,),
         },
         debugShowCheckedModeBanner: false,      
         theme: ThemeData(
@@ -29,15 +29,16 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.w700,
               color: Colors.white
             ),
-            headline2: GoogleFonts.oleoScript(textStyle: TextStyle(
+            headline2: GoogleFonts.monda(textStyle: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
               color: Colors.white
             )),
              bodyText1: GoogleFonts.gruppo(textStyle: TextStyle(
               fontSize: 28,
-              fontWeight: FontWeight.w700,
-              color: Colors.white
+              fontWeight: FontWeight.w900,
+              color: Colors.white,
+              letterSpacing: 4
             ))
           )
         ),
