@@ -122,51 +122,61 @@ class Body extends StatelessWidget {
                   )),
                 ),
                 //BODY
-                Container(
-                  height: 200,
-                  child: Stack(
+                Padding(
+                  padding: EdgeInsets.all(10.w),
+                  child: Row(                  
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:  [
+                      Container(
+                        //color: Colors.black54,
+                        width: 0.7.sw,
+                        child: Stack(
+                        alignment: Alignment.center,
                         children: [
-                          // CAR
-                          Image.asset("assets/images/1ttcoupe.png",height: 140.h,), 
-                          // CAR OPACITY
-                          Positioned(
-                            top: -25,
-                            left: -40,
-                            child: Container(
-                              width: 380.w ,
+                          Container(
+                            //color: Colors.black54,                          
+                            constraints: BoxConstraints(
+                              maxHeight: 140.h,
+                              maxWidth: 140.w
+                            ),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image:  Image.asset("assets/images/1ttcoupe.png",
+                                        fit: BoxFit.contain,
+                                        height: 140.h ,
+                                        width: 140.w,
+                                        ).image,
+                              )
+                            ),
+                          ),
+                          Container(        
                               height: 190.h,
+                              width: 190.w,                
                               decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  opacity: 0.25,
-                                  image: AssetImage("assets/images/1ttcoupe.png",)
+                                //color: Colors.greenAccent.withOpacity(0.1),
+                                image: DecorationImage(                                      
+                                  opacity: 0.25,                                      
+                                  image: Image.asset("assets/images/1ttcoupe.png",
+                                    fit: BoxFit.contain,
+                                    // height: 250.h,
+                                    // width: 250.w,                                       
+                                  ).image
                               ),
                             ),
                             ),
-                          ),
-                          // CAR GALLERY
-                          Container(
-                            margin: EdgeInsets.only(right: 10),
-                            height: 100,
-                            alignment: Alignment.bottomRight,
-                            child: Text('Car Gallery',
-                              style: TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w700
-                              ),)),
-                        
-                          Positioned(
+                            // ferrari 
+                            Positioned(
                             left: 0,
                             bottom: 0,
                             child: Container(
                               margin: EdgeInsets.all(10),                                                            
                               child: Row(
-                                //crossAxisAlignment: CrossAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text('Ferrari',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      letterSpacing: 2,
+                                      fontSize: 22,
                                       color: Colors.white,
                                       fontWeight: FontWeight.w700
                                     ),),
@@ -178,10 +188,61 @@ class Body extends StatelessWidget {
                                 ],
                               )),
                           ),
-                        
+
                         ],
+                      ),
+                      ),
+                      Expanded(
+                        child: Container(
+                            margin: EdgeInsets.only(right: 5),
+                            //width: 0.2.sw,
+                            //color: Colors.greenAccent.withOpacity(0.5),
+                            alignment: Alignment.center,
+                            child: Text('Car Gallery',
+                              softWrap: false,
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                color: Colors.white,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w600
+                              ),
+                            )
+                          ),
+                      ),
+
+                      
+                    ]
                   ),
                 ),
+                
+
+                // Stack(
+                //       children: [  
+                //         Positioned(
+                //           left: 0,
+                //           bottom: 0,
+                //           child: Container(
+                //             margin: EdgeInsets.all(10),                                                            
+                //             child: Row(
+                //               //crossAxisAlignment: CrossAxisAlignment.end,
+                //               children: [
+                //                 Text('Ferrari',
+                //                   style: TextStyle(
+                //                     fontSize: 25,
+                //                     color: Colors.white,
+                //                     fontWeight: FontWeight.w700
+                //                   ),),
+                //                   SizedBox(width: 10,),
+                //                   Text('car',style: TextStyle(
+                //                     fontSize: 18,                                        
+                //                     color: Colors.white60
+                //                   ),),
+                //               ],
+                //             )),
+                //         ),
+                      
+                //       ],
+                // ),
 
 
                 
