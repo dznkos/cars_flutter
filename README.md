@@ -10,8 +10,8 @@ dependencies:<br/>
   carousel_slider: ^4.0.0<br/>
 
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/31463345/150287246-f999dc33-f6ff-4848-b7d7-f29237e41226.gif)
 
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/31463345/150287544-580b82b1-f324-4318-9976-f08e816318d7.gif)
 
 
 
