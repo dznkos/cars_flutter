@@ -9,7 +9,9 @@ dependencies:<br/>
   google_fonts: ^2.2.0<br/>
   carousel_slider: ^4.0.0<br/>
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/31463345/150286581-f49c716e-ac7c-4abf-8873-a1d406dbe3fb.gif)
+
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/31463345/150287246-f999dc33-f6ff-4848-b7d7-f29237e41226.gif)
+
 
 
 
