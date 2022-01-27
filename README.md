@@ -1,9 +1,11 @@
-# appcars
 
 ## Clone Design Cars App
 
-dependencies:<br/>
+Copy Design 
+Using Flutter
+
   # Use these dependencies<br/>
+  dependencies:<br/>
   cupertino_icons: ^1.0.2<br/>
   flutter_screenutil: ^5.0.3<br/>
   google_fonts: ^2.2.0<br/>
